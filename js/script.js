@@ -89,9 +89,10 @@ const nodes = {
       body: {
         javascript: `<p><strong>Checklist:</strong> Ensure the script is included or run with the correct runtime and check the browser console for syntax errors.</p>
                      <p><strong>Try:</strong> run a minimal example and progressively add code back in.</p>`,
-        java: `<p><strong>Checklist:</strong> Compile with <code>javac</code> and check for compile-time errors; ensure a proper <code>main</code> method exists.</p>
+        java: `<p><strong>Checklist:</strong> Compile with <code>javac</code> or within an IDE, and check for compile-time errors; ensure a proper <code>main</code> method exists.</p>
                <p><strong>Try:</strong> run a minimal HelloWorld program to confirm environment is set up.</p>`,
-        csharp: `<p><strong>Checklist:</strong> Confirm .NET SDK is installed, and try <code>dotnet run</code> in the project directory.</p>`
+        csharp: `<p><strong>Checklist:</strong> Confirm .NET SDK is installed, and try <code>dotnet run</code> in the project directory through a terminal or console.</p>
+                 <p><strong>Try:</strong> create and run a minimal .NET console application to confirm environment is set up.</p>`
       }
     }
   },
@@ -105,9 +106,12 @@ const nodes = {
         csharp: "Not sure what's broken (C#)"
       },
       body: {
-        javascript: `<p>Reproduce the issue with a minimal example, add logs, and bisect changes to find the regression.</p>`,
-        java: `<p>Create a minimal reproducible example and run with a debugger or logs to find failing assumptions.</p>`,
-        csharp: `<p>Isolate the problem to a small sample, add logging, and use unit tests or a debugger to inspect behavior.</p>`
+        javascript: `<p><strong>What to do:</strong> Reproduce the issue with a minimal example replica of the program, adding logs and bisecting changes to find the regression.</p> 
+                     <p><strong>Try:</strong> Use browser developer tools to step through code execution and inspect variable values within the replica.</p>`,
+        java: `<p><strong>What to do:</strong> Create a minimal reproducible example of the program and add output statements at vital points where a variable changes.</p>
+               <p><strong>Try:</strong> Use a debugger and debugging lines (i.e output statements)to step through the code execution within the replica and inspect variable values.</p>`,
+        csharp: `<p><strong>What to do:</strong> Replicate the code to another program in small samples. Test the program slowly, adding more components as you progress.</p>
+                 <p><strong>Try:</strong> Including logging statements to trace execution and inspect variable values. Use debugging tools within your IDE as well to help find the issue.</p>`
       }
     }
   },
@@ -121,9 +125,14 @@ const nodes = {
         csharp: 'You see a warning — what it means'
       },
       body: {
-        javascript: `<p>Warnings are often non-blocking but indicate potential problems - read the message and fix or note it.</p>`,
-        java: `<p>Warnings from the compiler or runtime may indicate deprecations or unsafe operations; address when possible.</p>`,
-        csharp: `<p>Warnings indicate potential issues; follow suggestions to ensure safer, future-proof code.</p>`
+        javascript: `<p><strong>Meaning:</strong> Warnings are often non-blocking and the code can run with them, but indicate potential problems or bad practices. They can lead to future-proof problems.</p>
+                     <p><strong>Advice:</strong> Address the warning when possible. Research the warning by looking it up, then fix it or note it for the future.</p>`,
+        java: `<p><strong>Meaning:</strong> Warnings from the compiler or runtime may indicate deprecations or unsafe operations that may occur.</p>
+               <p><strong>Advice:</strong> While the program can still run with warnings, it's best to address the warnings for future compatibility and safety.
+               Search online for information about the warning and what it means.</p>`,
+        csharp: `<p><strong>Meaning:</strong> Warnings indicate potential issues within the code that may interfere and cause operation issues when running.</p>
+                 <p><strong>Advice:</strong> While the program can be run, it's recommended to solve the warning as soon as possible to avoid long-term issues. 
+                 Look up the warning message online to understand its implications and how to fix it.</p>`
       }
     }
   },
@@ -135,7 +144,7 @@ const nodes = {
       { text: "Git won't let me commit", next: 'git_nocommit' },
       { text: 'Nothing appears on GitHub', next: 'git_notpushed' },
       { text: 'I have a merge conflict', next: 'git_merge_conflict' },
-      { text: 'I am confused about remotes/branches', next: 'git_remotes' },
+      { text: 'I am confused about my current remotes/branches', next: 'git_remotes' },
       { text: "I don't know what Git wants me to do", next: 'git_help_wanted' }
     ]
   },
@@ -144,8 +153,9 @@ const nodes = {
     id: 'git_nocommit',
     result: {
       title: "Git won't let me commit",
-      body: `<p>Run <code>git status</code> to see staged files. Use <code>git add .</code> then <code>git commit -m "msg"</code>.</p>
-             <p>Suggested commands: <code>git status</code>, <code>git add .</code>, <code>git commit -m "Initial commit"</code></p>`
+      body: `<p><strong>What could be happening:</strong> It's possible that when you tried to commit, you were committing nothing into the repository.</p>
+             <p>Suggested commands: Run <code>git status</code> to check what files are and are not staged, then run <code>git add .</code>,
+             then finally <code>git commit -m "Insert any msg here"</code></p>`
     }
   },
 
@@ -153,8 +163,9 @@ const nodes = {
     id: 'git_notpushed',
     result: {
       title: 'Nothing on GitHub',
-      body: `<p>Make sure you pushed to the correct remote and branch: <code>git push -u origin main</code>.</p>
-             <p>Run <code>git remote -v</code> and <code>git branch -av</code> to verify.</p>`
+      body: `<p><strong>What could be happening:</strong> Make sure you are pushing your code to the correct remote and branch.</p>
+             <p><strong>Suggested commands:</strong> Run <code>git remote -v</code> and <code>git branch -av</code> 
+             to verify if you are within the correct remote and branch.</p>`
     }
   },
 
@@ -162,9 +173,9 @@ const nodes = {
     id: 'git_merge_conflict',
     result: {
       title: 'You have a merge conflict',
-      body: `<p><strong>Why this happens:</strong> Changes in two branches conflict and Git needs help to resolve which code to keep.</p>
-             <p><strong>Try:</strong> Run <code>git status</code> to see conflicted files, edit files to resolve, then <code>git add</code> and <code>git commit</code>.</p>
-             <p><strong>Suggested search:</strong> "how to resolve git merge conflict"</p>`
+      body: `<p><strong>Why this happens:</strong> There may have been changes in two branches, which can cause conflict and Git needs help to resolve which code to keep.</p>
+             <p><strong>What to do:</strong> Run <code>git status</code> to see conflicted files, edit files to resolve, then <code>git add</code> and <code>git commit</code>.</p>
+             <p><strong>Suggested search:</strong> "How to resolve Git merge conflict"</p>`
     }
   },
 
@@ -172,7 +183,7 @@ const nodes = {
     id: 'git_remotes',
     result: {
       title: 'Remotes & branches confusion',
-      body: `<p>Check <code>git remote -v</code> to see configured remotes and <code>git branch -av</code> to list branches and their tracking status.</p>
+      body: `<p><strong>How to check the current remote and branch:</strong> Check <code>git remote -v</code> to see configured remotes and <code>git branch -av</code> to list branches and their tracking status.</p>
              <p>If you need to set the remote: <code>git remote add origin &lt;url&gt;</code>. To push: <code>git push -u origin branch-name</code>.</p>`
     }
   },
@@ -181,8 +192,9 @@ const nodes = {
     id: 'git_help_wanted',
     result: {
       title: 'Not sure what Git wants',
-      body: `<p>Git often expects you to commit staged changes, resolve conflicts, or set an upstream. Run <code>git status</code> to see the next step.</p>
-             <p>Suggested commands: <code>git status</code>, <code>git add .</code>, <code>git commit</code>, <code>git push</code></p>`
+      body: `<p><strong>What Git wants:</strong> Git often expects you to commit staged changes, resolve conflicts, or set an upstream. This typically isn't communicated clearly.</p>
+             <p><strong>Suggested commands:</strong> Run <code>git status</code> to see the next step, then <code>git add .</code>, <code>git commit</code>, and <code>git push</code>
+             if needed.</p>`
     }
   }
 };

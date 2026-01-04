@@ -12,7 +12,7 @@ As a developer and first-time hackathon participant, I often ran into situations
 * Nothing showed up on GitHub after pushing
 * My code didn’t work, but I didn’t know *how to describe the problem*
 
-Most resources or tutorials are taught or shown in a way that assume you already know what to search for. **Technical Lifeline** was created to bridge that gap, to help developers ask the *right questions* and take their *next step* with confidence.
+Most resources or tutorials are taught or shown in a way that assume you already know what to search for. **Technical Lifeline** was created to bridge that gap, to help beginning developers ask the *right questions* and take their *next step* with confidence.
 
 ---
 
@@ -44,9 +44,10 @@ Technical Lifeline guides users through a simple decision tree:
 **1. What’s happening?**
 
 *  I see an error message
-*  My code runs, but the output is wrong
+*  The output is wrong
 *  My code won’t run at all
 *  I’m not sure what broke
+*  I see a warning
 
 **2. What language are you using?**
 
@@ -56,9 +57,10 @@ Technical Lifeline guides users through a simple decision tree:
 
 **3. Output Provided**
 
-* Plain-English explanation of what this usually means
+* Plain-English explanation of what the error usually means
 * Common causes
 * What to check first
+* What to do and what to try
 * Suggested Google search phrases
 
 ---
@@ -69,7 +71,8 @@ Technical Lifeline guides users through a simple decision tree:
 
 *  Git won’t let me commit
 *  Nothing appears on GitHub
-*  I’m confused about remotes / origin
+*  I have a merge conflict
+*  I’m confused about remotes / branches
 *  I don’t know what Git wants me to do
 
 **2. Guided Explanation Includes**
