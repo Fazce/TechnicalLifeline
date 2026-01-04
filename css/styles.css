@@ -1,0 +1,157 @@
+/* 
+ * Project: CSS Styles for Technical Lifeline App 
+ * Description: Basic styling for layout, cards, buttons, and responsive design.
+ * Programmer: Daniel Nguyen
+ * Date: 01/02/2026
+ */
+
+:root {
+    --bg: #f5f7fb;
+    --card: #ffffff;
+    --accent: #0b76ef;
+    --muted: #6b7280;
+    --radius: 12px;
+    --pad: 18px;
+}
+
+* {box-sizing: border-box;} 
+body {
+    margin: 0;
+    background:var(--bg);
+    color: #0f172a;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 px 18px rgba(0,0,0,0.1);
+    padding: var(--pad);
+    margin-bottom: 16px;
+}
+
+.container {
+    max-width: 860px;
+    margin: 28px auto;
+    padding: 0 16px;
+}
+
+.site-header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.site-header h1 { 
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.tagline {
+    color: var(--muted);
+    margin: 6px 0 0;
+}
+
+.header-controls {
+    display:flex; 
+    align-items:center; 
+    gap:8px
+}
+
+#language {
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #e2e8f0;
+  background:white;
+  font-size:0.95rem;
+  min-width:140px;
+}
+
+.options {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  border-radius: 8px; 
+  cursor:pointer;
+  transition: all .12s; 
+  min-width:160px;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color:white; 
+    border-color: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:focus {
+    outline: 3px solid rgba(11,118,239,0.18);
+    outline-offset: 2px;
+}
+
+.hidden {
+    display:none!important
+}
+
+.choices {
+    list-style: none;
+    padding:0; 
+    margin: 12px 0;
+    display: grid; 
+    gap: 10px;
+}
+
+.choice-btn { 
+    display:block; 
+    width:100%;
+    text-align:left; 
+    padding:10px; 
+    border-radius:8px; 
+    border:1px solid #eee; 
+    background:#fafafa;
+}
+
+.choice-btn:hover {
+    background:#f1f5f9;
+}
+
+.result-actions {
+    margin-top:12px;
+}
+
+.controls {
+    display:flex; 
+    gap:8px; 
+    justify-content:flex-end; 
+    align-items:center
+}
+
+.site-footer { 
+    text-align:center; 
+    color:var(--muted); 
+    padding:16px 0; 
+    font-size:0.9rem 
+}
+
+/* Responsive */
+@media (max-width:520px){
+  .options{flex-direction:column}
+}
+
+/* Accessibility helper */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Lifeline</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header class = "site-header">
+        <div>
+            <h1>Technical Lifeline</h1>
+            <p class = "tagline">Your go-to resource for guided troubleshooting for coding and Git issues</p>
+        </div>
+        
+        <div class = "header-controls" aria-hidden = "false">
+            <label for = "language" class = "visually-hidden">Select your language:</label>
+            <select id = "language" aria-lable = "Select language">
+                <option value = "javascript">JavaScript</option>
+                <option value = "java">Java</option>
+                <option value = "csharp">C#</option>
+            </select>
+        </div>
+    </header>
+
+    <main id = "app" class = "container" role = "main" aria-live = "polite">
+        <section id = "intro" class = "card">
+            <p>Welcome to Technical Lifeline! Pick a path to get started:</p>
+            <div class = "options">
+                <button class = "btn primary" data-start= "general">General Coding Help</button>
+                <button class = "btn" data-start= "git">Git Help</button>
+            </div>
+        </section>
+
+        <section id="question" class="card hidden" aria-hidden="true">
+            <h2 id="question-title"></h2>
+            <ul id = "choices" class = "choices" role = "list"></ul>
+        </section>
+
+        <section id="result" class="card hidden" aria-hidden="true">
+            <h2 id="result-title"></h2>
+            <div id="result-body"></div>
+            <div id="result-actions" class="result-actions"></div>
+        </section>
+
+        <nav class="controls" aria-label="controls">
+            <button id="back-btn" class="btn" disabled>Back</button>
+            <button id="reset-btn" class="btn">Reset</button>
+        </nav>
+    </main>
+
+    <!-- JavaScript File 1: Decision Tree -->
+    <script src="../js/script.js"></script>
+    <!-- JavaScript File 2: App Logic -->
+    <script src="../js/applogic.js"></script>
+</body>
+</html>
