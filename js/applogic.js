@@ -17,6 +17,7 @@ const state = {
   language: 'javascript' 
 };
 
+/* Save the current state (aka navigation and language) to localStorage */
 function saveState() {
   try { 
     localStorage.setItem('tl_state', JSON.stringify({ current: state.current, history: state.history })); 
@@ -25,6 +26,7 @@ function saveState() {
   catch (e) {}
 }
 
+/* Load the saved state from localStorage */
 function loadState() {
   try {
     // Only restore language preference on load. We intentionally do NOT
@@ -35,6 +37,7 @@ function loadState() {
   catch(e){}
 }
 
+/* Show the intro screen upon launching the app*/
 function showIntro() {
   $('#intro').classList.remove('hidden');
   $('#question').classList.add('hidden'); $('#question').setAttribute('aria-hidden', 'true');
@@ -42,6 +45,7 @@ function showIntro() {
   $('#back-btn').disabled = true;
 }
 
+/* Render a node (question or result) based on its ID */
 function renderNode(nodeId) {
   const node = nodes[nodeId];
    if (!node) {
@@ -88,11 +92,13 @@ function renderNode(nodeId) {
   }
 }
 
+/* Copy the result body text to the user's clipboard */
 function copyBody() {
   const txt = $('#result-body').innerText || $('#result-body').textContent;
   navigator.clipboard?.writeText(txt).then(()=> alert('Copied!'), ()=> alert('Copy failed'));
 }
 
+/* Navigate back to the previous node */
 function goBack() {
   if (!state.history.length) { 
     showIntro(); 
@@ -104,9 +110,10 @@ function goBack() {
   saveState();
 }
 
+/* Reset the app to its initial state */
 function resetAll() {
   state.history = []; state.current = null;
-  // Clear navigation state but keep language preference
+  // Clear navigation state from localStorage
   localStorage.removeItem('tl_state');
   showIntro();
 }
@@ -146,10 +153,7 @@ function initApp() {
   }
 }
 
-/* Returning localized text:
- * If item is object, return item[state.language] || item.javascript || first value
- * If string, return it as-is.
-*/
+/* Returning localized text*/
 function localText(item) {
   if (!item && item !== '') {
     return '';
