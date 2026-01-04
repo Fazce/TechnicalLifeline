@@ -89,7 +89,6 @@ Technical Lifeline guides users through a simple decision tree:
 
 * **Frontend:** HTML, CSS, JavaScript
 * **Logic:** JavaScript decision trees
-* **Hosting:** GitHub Pages
 
 No backend or external APIs required.
 
@@ -140,8 +139,9 @@ Rather than fixing issues automatically, the app helps users **learn how to get 
 
 ##  Future Improvements
 
-* More Git scenarios (merge conflicts, branches)
+* More scenarios for general coding and Git
 * Additional languages and frameworks
 * Save user progress
 * Interactive command simulations
+* Set up a potential hosting site for the web app (something like Github Pages)
 
