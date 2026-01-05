@@ -2,6 +2,8 @@
 
 **Technical Lifeline** is a beginner-friendly web app that helps programmers figure out what to do *when they’re stuck and don’t know what to search on Google*. It provides guided troubleshooting for common coding issues as well as  **Git and GitHub mistakes** that frequently block beginners during hackathons and personal projects.
 
+This was developed for Major League Hacking's **Hack for Hackers** Hackathon.
+
 ---
 
 ## Inspiration
